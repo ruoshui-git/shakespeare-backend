@@ -4,12 +4,12 @@ from starlette.middleware import Middleware
 from starlette.middleware.cors import CORSMiddleware
 
 
-origins = [
-    "http://localhost:5000",
-]
+# origins = [
+#     "http://localhost:5000",
+# ]
 
 middleware = [
-    Middleware(CORSMiddleware, allow_origins=origins)
+    Middleware(CORSMiddleware, allow_origins=["*"])
 ]
 
 app = FastAPI(middleware=middleware)
