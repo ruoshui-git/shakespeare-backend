@@ -1,5 +1,5 @@
-model/config.json
-model/pytorch_model.bin
+# model/config.json
+# model/pytorch_model.bin
 
 # Created by https://www.toptal.com/developers/gitignore/api/python
 # Edit at https://www.toptal.com/developers/gitignore?templates=python
