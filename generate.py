@@ -6,10 +6,10 @@ from transformers.models.gpt2 import GPT2LMHeadModel
 from transformers.models.gpt2 import GPT2TokenizerFast
 
 import os
-import gdown
+# import gdown
 
-model_url = os.environ.get('MODEL_URL')
-config_url = os.environ.get('CONFIG_URL')
+# model_url = os.environ.get('MODEL_URL')
+# config_url = os.environ.get('CONFIG_URL')
 
 
 model_path = Path('model/pytorch_model.bin')
@@ -17,11 +17,11 @@ config_path = Path('model/config.json')
 vocab_path = Path('model/encoder.json')
 merges_path = Path('model/vocab.bpe')
 
-if not model_path.exists():
-    gdown.download(model_url, str(model_path.resolve()), quiet=False)
+# if not model_path.exists():
+#     gdown.download(model_url, str(model_path.resolve()), quiet=False)
 
-if not config_path.exists():
-    gdown.download(config_url, str(config_path.resolve()), quiet=False)
+# if not config_path.exists():
+#     gdown.download(config_url, str(config_path.resolve()), quiet=False)
 
 print('Loading model...')
 model = GPT2LMHeadModel.from_pretrained(
