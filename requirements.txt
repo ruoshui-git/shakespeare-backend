@@ -1,5 +1,5 @@
 gunicorn
-uvicorn
+uvicorn[standard]
 fastapi
 --find-links https://download.pytorch.org/whl/torch_stable.html
 torch==1.7.0+cpu
