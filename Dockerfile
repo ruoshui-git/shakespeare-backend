@@ -9,5 +9,4 @@ COPY ./model /app/model
 RUN pip install gdown && gdown https://drive.google.com/uc?id=1-8zTenijMztkEmkNJnpWppHaVx8uI6aC -O /app/model/pytorch_model.bin
 
 COPY ./model/*.json /app/model/
-COPY ./model/vocab.bpe /app/model/vocab.bpe
 COPY *.py /app
