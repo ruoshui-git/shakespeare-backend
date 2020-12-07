@@ -1,8 +1,0 @@
-{
-  "name": "Your Shakespeare Play",
-  "description": "A Python backend for GPT-2 AI model",
-  "image": "heroku/python",
-  "repository": "https://github.com/heroku/python-getting-started",
-  "keywords": ["python", "fastapi", "GPT-2", "AI", "ML"],
-  "addons": []
-}
