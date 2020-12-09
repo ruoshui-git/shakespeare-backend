@@ -2,6 +2,8 @@
 
 After many many trials and failures, this is finally successfully deployed on Azure Web Services for Containers.
 
+This repo is also hosted on [bitbucket](https://bitbucket.org/ruoshui-git/backend/src/main/) because bitbucket doesn't have Git LFS bandwidth quota.
+
 # Running locally
 
 ## Using Docker (which I ended up using for deployment)
