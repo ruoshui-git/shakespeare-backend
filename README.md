@@ -1,52 +1,31 @@
+# Backend for Shakespeare GPT-2 model
+
+After many many trials and failures, this is finally successfully deployed on Azure Web Services for Containers.
+
+# Running locally
+
+## Using Docker (which I ended up using for deployment)
+
+- Build: `docker build -t shakespeare-backend ./`
+- Run: `docker run -d --name sp-container -p 9640:80 shakespeare-backend`
+
+_Obviously, these are commands only for people who have never used Docker._
+
+## Using good old plain normal pip
+
+- Install requirements: `pip install -r requirements.txt`
+
+It's very likely that GitHub will not clone "/model/pytorch_model.bin", which is stored in lfs. (I exceeded my bandwith quota already.)
+BitBucket has no bandwith quota, but I didn't investigate how to clone with lfs. The size of the file is 487 MB, so if it's anything less than that on your disk, you don't have the right file.
+
+If that's the case, run this in project root folder:
+
+`pip install gdown && gdown https://drive.google.com/uc?id=1-8zTenijMztkEmkNJnpWppHaVx8uI6aC -O ./model/pytorch_model.bin`
+
+- Run: `uvicorn main:app`
+
 # Heroku failed for this one
 
 I was trying to download the model with gdown, but it takes too long. Heroku will kill a worker if it doesn't respond within 30 sec. Downloading a ~500 MB model definite takes longer than that.
 
 Also it seems like each worker is downloading their own copy of the model. Not good.
-
-# Python: Getting Started
-
-A barebones Django app, which can easily be deployed to Heroku.
-
-This application supports the [Getting Started with Python on Heroku](https://devcenter.heroku.com/articles/getting-started-with-python) article - check it out.
-
-## Running Locally
-
-Make sure you have Python 3.7 [installed locally](http://install.python-guide.org). To push to Heroku, you'll need to install the [Heroku CLI](https://devcenter.heroku.com/articles/heroku-cli), as well as [Postgres](https://devcenter.heroku.com/articles/heroku-postgresql#local-setup).
-
-```sh
-$ git clone https://github.com/heroku/python-getting-started.git
-$ cd python-getting-started
-
-$ python3 -m venv getting-started
-$ pip install -r requirements.txt
-
-$ createdb python_getting_started
-
-$ python manage.py migrate
-$ python manage.py collectstatic
-
-$ heroku local
-```
-
-Your app should now be running on [localhost:5000](http://localhost:5000/).
-
-## Deploying to Heroku
-
-```sh
-$ heroku create
-$ git push heroku main
-
-# $ heroku run python manage.py migrate
-$ heroku open
-```
-
-or
-
-[![Deploy](https://www.herokucdn.com/deploy/button.svg)](https://heroku.com/deploy)
-
-## Documentation
-
-For more information about using Python on Heroku, see these Dev Center articles:
-
-- [Python on Heroku](https://devcenter.heroku.com/categories/python)
